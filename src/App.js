@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    const { list } = this.props;
+    const spans = [];
+    let i = 0;
+    for(const e of list) {
+      spans.push(<span key={i++}>{e}</span>)
+    }
+    return <div>
+      {spans}
+    </div>;
+  }
 }
 
-export default App;
+const mapStoreStateToComponentProps = (state) => {
+  return {
+    list: state.tempReducer.list
+  }
+};
+
+export default connect(mapStoreStateToComponentProps)(App);
