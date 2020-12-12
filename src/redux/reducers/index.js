@@ -12,7 +12,6 @@ const list = [
 const tempReducer = (state={list}, action='') => {
     if(action.type === 'delete') {
         const newList = [...list.slice(0, action.idx), ...list.slice(action.idx+1, list.length)];
-        console.log(newList);
         return {
             ...state,
             list: newList
