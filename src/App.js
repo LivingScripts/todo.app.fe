@@ -3,12 +3,24 @@ import { connect } from 'react-redux';
 import './App.scss';
 
 class App extends Component {
+  deleteString(idx) {
+    this.props.delete(idx);
+  }
+
   render() {
     const { list } = this.props;
     const spans = [];
     let i = 0;
     for(const e of list) {
-      spans.push(<span key={i++}>{e}</span>)
+      let idx = i;
+      spans.push(
+        <>
+          <span key={idx}>{e}</span>
+          <button onClick={() => { this.deleteString(idx) }} >delete me!</button>
+          <br/>
+        </>
+      )
+      ++i;
     }
     return <div>
       {spans}
@@ -22,4 +34,10 @@ const mapStoreStateToComponentProps = (state) => {
   }
 };
 
-export default connect(mapStoreStateToComponentProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    delete: (idx) => { dispatch({type: 'delete', idx }); }
+  };
+}
+
+export default connect(mapStoreStateToComponentProps, mapDispatchToProps)(App);
