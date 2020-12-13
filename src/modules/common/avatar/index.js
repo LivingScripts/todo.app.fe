@@ -26,7 +26,7 @@ const avatarType = (props) => {
             size = 'avatar-lg'
     }
 
-    return variant + ' ' + size;
+    return addClasses(variant, size);
 }
 
 export default function Avatar(props) {

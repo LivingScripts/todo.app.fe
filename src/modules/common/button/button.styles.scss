@@ -1,0 +1,104 @@
+@import '../../../variables.scss';
+
+.btn {
+    border-radius: 5px;
+    font-size: 18px;
+    color: $font-color-default;
+    border: none;
+    padding: 6px 16px;
+    margin: 8px;
+    cursor: pointer;
+
+    .start-icon {
+        margin-right: 10px;
+    }
+
+    .end-icon {
+        margin-left: 10px;
+    }
+}
+
+.outlined {
+    background-color: transparent !important;
+    &.primary {
+        color: $primary !important;
+        &:hover {
+            transition: 0.2s ease-in-out;
+            background-color: rgba($primary, 0.3) !important;
+        }
+    }
+    &.secondary {
+        color: $secondary !important;
+        &:hover {
+            transition: 0.2s ease-in-out;
+            background-color: rgba($secondary, 0.3) !important;
+        }
+    }
+    &.default {
+        color: $default !important;
+        &:hover {
+            transition: 0.2s ease-in-out;
+            background-color: rgba($default, 0.3) !important;
+        }
+    }
+}
+
+.text {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    &.primary {
+        color: $primary !important;
+        &:hover {
+            transition: 0.2s ease-in-out;
+            background-color: rgba($primary, 0.3) !important;
+        }
+    }
+    &.secondary {
+        color: $secondary !important;
+        &:hover {
+            transition: 0.2s ease-in-out;
+            background-color: rgba($secondary, 0.3) !important;
+        }
+    }
+    &.default {
+        color: #303030 !important;
+        &:hover {
+            transition: 0.2s ease-in-out;
+            background-color: rgba($default, 0.3) !important;
+        }
+    }
+}
+
+.default {
+    background-color: $default;
+    border: 1px solid $default;
+    &:hover {
+        transition: 0.2s ease-in-out;
+        background-color: rgba($default, 0.9) !important;
+    }
+}
+
+.primary {
+    background-color: $primary;
+    border: 1px solid $primary;
+    &:hover {
+        transition: 0.2s ease-in-out;
+        background-color: rgba($primary, 0.9);
+    }
+}
+
+.secondary {
+    background-color: $secondary;
+    border: 1px solid $secondary;
+    &:hover {
+        transition: 0.2s ease-in-out;
+        background-color: rgba($secondary, 0.9);
+    }
+}
+
+.disabled {
+    background-color: $disabled !important;
+    border: 1px solid $disabled !important;
+    color: $font-color-disabled !important;
+    pointer-events: none;
+}
