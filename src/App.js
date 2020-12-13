@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import Header from './modules/header/index';
 import './App.scss';
 
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
       ++i;
     }
     return <div>
-      {spans}
+      <Header/>
     </div>;
   }
 }

@@ -1,0 +1,10 @@
+@import '../../variables.scss';
+
+.header {
+    &.light {
+        background-color: $primary-light;
+    }
+    &.dark {
+        background-color: $primary-dark;
+    }
+}
