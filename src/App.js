@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './modules/header/index';
 import './App.scss';
+import Card from './modules/common/card';
 
 class App extends Component {
   deleteString(idx) {
@@ -25,6 +26,7 @@ class App extends Component {
     }
     return <div>
       <Header/>
+      <Card></Card>
     </div>;
   }
 }

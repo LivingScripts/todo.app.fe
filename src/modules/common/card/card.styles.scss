@@ -6,5 +6,55 @@
     min-width: 275px;
     overflow: hidden;
     color: $font-color-default;
-    padding: 16px;
+
+    .card-header {
+        .push-away {
+            .id {
+                font-size: 1.8rem;
+                font-weight: 500;
+            }
+            .id::before {
+                content: "#";
+                font-weight: 500;
+            }
+        }
+        .title {
+            font-size: 2.2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+    }
+
+    .description {
+        width: 100%;
+        max-height: 250px;
+        text-overflow: ellipsis;
+        -ms-text-overflow: ellipsis;
+        padding: 20px;
+        font-size: 1.6rem;
+    }
+
+    .progress-bar-container {
+        div {
+            width: 100%;
+            height: 5px;
+            background-color: greenyellow;
+        }
+    }
+
+    .controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .control {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            .count {
+                font-size: 1.8rem ;
+            }
+        }
+    }
 }

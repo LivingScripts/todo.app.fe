@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.styles.scss';
 import Avatar from '../common/avatar';
-import { Button, IconButton } from '../common/button/';
+import { Button, IconButton } from '../common/button';
 
 function Header() {
     return (
