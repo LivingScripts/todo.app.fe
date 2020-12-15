@@ -3,7 +3,7 @@ import './button.styles.scss';
 import { addClasses } from '../../../utils';
 
 const buttonType = (props) => {
-    let variant = '', color = '';
+    let variant = '', color = '', size = 'btn-fab';
     if(props.variant === 'icon-only') {
         variant = 'text';
     } else {
@@ -22,13 +22,17 @@ const buttonType = (props) => {
             break;
     }
 
-    return addClasses(variant, color);
+    if(props.size === "small") {
+        size = "btn-fab-sm";
+    }
+
+    return addClasses(variant, color, size);
 };
 
 export default function IconButton(props) {
     let classes = buttonType(props);
     return (
-        <button className={addClasses(classes, 'btn btn-fab')}>
+        <button className={addClasses(classes, 'btn')}>
             {props.icon}
         </button>
     );

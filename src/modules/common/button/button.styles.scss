@@ -5,6 +5,7 @@
     border: none;
     cursor: pointer;
     margin: 8px;
+    padding: 0;
 }
 
 .btn-full {
@@ -27,6 +28,14 @@
     border-radius: 50%;
     font-size: 24px;
     padding-bottom: 3px;
+}
+
+.btn-fab-sm {
+    height: 32px;
+    width: 32px;
+    font-size: 18px;
+    padding-bottom: 3px;
+    border-radius: 50%;
 }
 
 .outlined {
@@ -72,7 +81,7 @@
         }
     }
     &.default {
-        color: #303030 !important;
+        color: #ffffff !important;
         &:hover {
             transition: 0.2s ease-in-out;
             background-color: rgba($default, 0.3) !important;

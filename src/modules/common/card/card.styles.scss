@@ -4,34 +4,39 @@
     background-color: $panel-bg-color;
     border-radius: 4px;
     min-width: 275px;
+    max-width: 300px;
     overflow: hidden;
     color: $font-color-default;
+    box-sizing: border-box;
 
     .card-header {
         .push-away {
             .id {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
                 font-weight: 500;
             }
             .id::before {
                 content: "#";
                 font-weight: 500;
             }
+            .btn {
+                margin: 0;
+            }
         }
         .title {
-            font-size: 2.2rem;
+            font-size: 1.6rem;
             font-weight: 500;
             text-transform: uppercase;
         }
     }
 
     .description {
-        width: 100%;
-        max-height: 250px;
-        text-overflow: ellipsis;
-        -ms-text-overflow: ellipsis;
-        padding: 20px;
-        font-size: 1.6rem;
+        text-align: justify;
+        font-size: 1.4rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
     }
 
     .progress-bar-container {
@@ -43,18 +48,14 @@
     }
 
     .controls {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
         .control {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-
+            margin-right: 8px;
             .count {
-                font-size: 1.8rem ;
+                font-size: 1.2rem ;
             }
+        }
+        .control:first-child {
+            margin-left: -8px;
         }
     }
 }
