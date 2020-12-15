@@ -33,7 +33,7 @@ const buttonType = (props) => {
 export default function Button(props) {
     let classes = buttonType(props);
     return (
-        <button className={addClasses(classes, 'btn')}>
+        <button className={addClasses(classes, 'btn btn-full')}>
             { props.startIcon && <span>{props.startIcon}</span> }
             { props.children }
             { props.endIcon && <span>{props.endIcon}</span> }

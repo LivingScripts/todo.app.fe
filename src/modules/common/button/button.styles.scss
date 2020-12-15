@@ -1,13 +1,16 @@
 @import '../../../variables.scss';
 
 .btn {
-    border-radius: 5px;
-    font-size: 18px;
     color: $font-color-default;
     border: none;
-    padding: 6px 16px;
-    margin: 8px;
     cursor: pointer;
+    margin: 8px;
+}
+
+.btn-full {
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 6px 16px;
 
     .start-icon {
         margin-right: 10px;
@@ -16,6 +19,14 @@
     .end-icon {
         margin-left: 10px;
     }
+}
+
+.btn-fab {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    font-size: 24px;
+    padding-bottom: 3px;
 }
 
 .outlined {
@@ -72,6 +83,7 @@
 .default {
     background-color: $default;
     border: 1px solid $default;
+    color: #303030;
     &:hover {
         transition: 0.2s ease-in-out;
         background-color: rgba($default, 0.9) !important;
