@@ -1,16 +1,20 @@
 import React from 'react';
 import './button.styles.scss';
+import PropType from 'prop-types';
 import { addClasses } from '../../../utils';
 
 const buttonType = (props) => {
-    let variant = '', color = '', size = 'btn-fab';
-    if(props.variant === 'icon-only') {
+    let variant = '';
+    let color = '';
+    let size = 'btn-fab';
+
+    if (props.variant === 'icon-only') {
         variant = 'text';
     } else {
         variant = 'contained';
     }
 
-    switch(props.color) {
+    switch (props.color) {
         case 'primary':
             color = 'primary';
             break;
@@ -22,18 +26,27 @@ const buttonType = (props) => {
             break;
     }
 
-    if(props.size === "small") {
-        size = "btn-fab-sm";
+    if (props.size === 'small') {
+        size = 'btn-fab-sm';
     }
 
     return addClasses(variant, color, size);
 };
 
-export default function IconButton(props) {
-    let classes = buttonType(props);
+export const IconButton = (props) => {
+    const classes = buttonType(props);
     return (
-        <button className={addClasses(classes, 'btn')}>
+        <button className={addClasses(classes, 'btn', props.classes)}>
             {props.icon}
         </button>
     );
-}
+};
+
+IconButton.propTypes = {
+    icon: PropType.elementType.isRequired,
+    classes: PropType.string
+};
+
+IconButton.defaultProps = {
+    classes: ''
+};

@@ -2,7 +2,7 @@ import React from 'react';
 import './card.styles.scss';
 import { IconButton } from '../button/';
 
-export default function Card(props) {
+export const Card = (props) => {
     return (
         <div className="card">
             <div className="card-header p-2">
@@ -36,4 +36,4 @@ export default function Card(props) {
             </div>
         </div>
     );
-}
+};

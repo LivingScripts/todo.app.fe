@@ -1,12 +1,13 @@
 import React from 'react';
 import './avatar.styles.scss';
+import PropTypes from 'prop-types';
 import { addClasses } from '../../../utils';
 
-
 const avatarType = (props) => {
-    let variant = '', size = '';
-    switch(props.variant) {
-        case 'rounded':
+    let variant = '';
+    let size = '';
+    switch (props.variant) {
+    case 'rounded':
             variant = 'rounded';
             break;
         case 'square':
@@ -15,7 +16,7 @@ const avatarType = (props) => {
             variant = 'circle';
     }
 
-    switch(props.size) {
+    switch (props.size) {
         case 'small':
             size = 'avatar-sm';
             break;
@@ -29,11 +30,20 @@ const avatarType = (props) => {
     return addClasses(variant, size);
 }
 
-export default function Avatar(props) {
-    let classes = avatarType(props);
+export const Avatar = (props) => {
+    const classes = avatarType(props);
     return (
         <div className={addClasses(classes, 'avatar', props.classes) }>
-            { props.children }
+            { React.Children.toArray(props.children)[0] }
         </div>
     );
-}
+};
+
+Avatar.propTypes = {
+	classes: PropTypes.string,
+	children: PropTypes.node.isRequired
+};
+
+Avatar.defaultProps = {
+    classes: ''
+};

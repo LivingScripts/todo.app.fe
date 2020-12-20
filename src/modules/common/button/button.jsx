@@ -1,10 +1,12 @@
 import React from 'react';
 import './button.styles.scss';
+import PropType from 'prop-types';
 import { addClasses } from '../../../utils';
 
 const buttonType = (props) => {
-    let variant = '', color = '';
-    switch(props.variant) {
+    let variant = '';
+    let color = '';
+    switch (props.variant) {
         case 'contained':
             break;
         case 'outlined':
@@ -15,7 +17,7 @@ const buttonType = (props) => {
             break;
     }
 
-    switch(props.color) {
+    switch (props.color) {
         case 'primary':
             color = 'primary';
             break;
@@ -30,13 +32,26 @@ const buttonType = (props) => {
     return addClasses(variant, color);
 };
 
-export default function Button(props) {
-    let classes = buttonType(props);
+export const Button = (props) => {
+    const classes = buttonType(props);
     return (
-        <button className={addClasses(classes, 'btn btn-full')}>
-            { props.startIcon && <span>{props.startIcon}</span> }
+        <button className={addClasses(classes, 'btn btn-full', props.classes)}>
+            { <span>{props.startIcon}</span> }
             { props.children }
-            { props.endIcon && <span>{props.endIcon}</span> }
+            { <span>{props.endIcon}</span> }
         </button>
     );
-}
+};
+
+Button.propTypes = {
+    startIcon: PropType.elementType,
+    endIcon: PropType.elementType,
+    children: PropType.node.isRequired,
+    classes: PropType.string
+};
+
+Button.defaultProps = {
+    startIcon: <></>,
+    endIcon: <></>,
+    classes: ''
+};
