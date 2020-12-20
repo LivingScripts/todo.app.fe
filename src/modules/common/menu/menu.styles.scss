@@ -1,0 +1,32 @@
+@import '../../../variables.scss';
+
+.menu-container {
+    position: relative;
+}
+
+.menu-list {
+    position: absolute;
+    top: calc(100% - 8px);
+    left: 8px;
+    border-radius: 2px;
+    background-color: $panel-bg-color;
+    color: $font-color-default;
+    min-width: 200px;
+    max-width: 300px;
+    box-shadow: 0 0 3px $separator-color;
+
+    &>.item {
+        display: block;
+        font-size: 1.4rem;
+        cursor: pointer;
+        overflow: hidden;
+        white-space: pre;
+        text-overflow: ellipsis;
+    }
+
+    &>.item:hover {
+        transition: 0.2s ease-in-out;
+        background-color: lighten($color: $panel-bg-color, $amount: 10%);
+    }
+
+}

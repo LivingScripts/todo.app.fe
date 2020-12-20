@@ -3,6 +3,10 @@ import './button.styles.scss';
 import PropType from 'prop-types';
 import { addClasses } from '../../../utils';
 
+const variantTypes = ['icon-only', 'contained'];
+const colorTypes = ['primary', 'secondary', 'default'];
+const sizeTypes = ['small', 'normal'];
+
 const buttonType = (props) => {
     let variant = '';
     let color = '';
@@ -44,9 +48,15 @@ export const IconButton = (props) => {
 
 IconButton.propTypes = {
     icon: PropType.elementType.isRequired,
+    variant: PropType.oneOf(variantTypes),
+    color: PropType.oneOf(colorTypes),
+    size: PropType.oneOf(sizeTypes),
     classes: PropType.string
 };
 
 IconButton.defaultProps = {
+    variant: 'icon-only',
+    color: 'defualt',
+    size: 'normal',
     classes: ''
 };

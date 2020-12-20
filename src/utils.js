@@ -5,4 +5,8 @@ export const ngClass = (classesWithConditions) => {
     }, '');
 }
 
+export const ngIf = (predicate, component) => {
+    return predicate ? component : null;
+};
+
 export const addClasses = (...classes) => classes.join(' ');

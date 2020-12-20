@@ -3,6 +3,9 @@ import './button.styles.scss';
 import PropType from 'prop-types';
 import { addClasses } from '../../../utils';
 
+const variantTypes = ['contained', 'outlined', 'text'];
+const colorTypes = ['primary', 'secondary', 'default'];
+
 const buttonType = (props) => {
     let variant = '';
     let color = '';
@@ -36,9 +39,9 @@ export const Button = (props) => {
     const classes = buttonType(props);
     return (
         <button className={addClasses(classes, 'btn btn-full', props.classes)}>
-            { <span>{props.startIcon}</span> }
+            { props.startIcon && <span>{props.startIcon}</span> }
             { props.children }
-            { <span>{props.endIcon}</span> }
+            { props.endIcon && <span>{props.endIcon}</span> }
         </button>
     );
 };
@@ -47,11 +50,15 @@ Button.propTypes = {
     startIcon: PropType.elementType,
     endIcon: PropType.elementType,
     children: PropType.node.isRequired,
+    variant: PropType.oneOf(variantTypes),
+    color: PropType.oneOf(colorTypes),
     classes: PropType.string
 };
 
 Button.defaultProps = {
-    startIcon: <></>,
-    endIcon: <></>,
+    startIcon: null,
+    endIcon: null,
+    variant: 'text',
+    color: 'default',
     classes: ''
 };
