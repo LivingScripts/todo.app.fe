@@ -41,17 +41,17 @@ export const IconButton = (props) => {
     const classes = buttonType(props);
     return (
         <button className={addClasses(classes, 'btn', props.classes)}>
-            {props.icon}
+            {React.Children.only(props.children)}
         </button>
     );
 };
 
 IconButton.propTypes = {
-    icon: PropType.elementType.isRequired,
     variant: PropType.oneOf(variantTypes),
     color: PropType.oneOf(colorTypes),
     size: PropType.oneOf(sizeTypes),
-    classes: PropType.string
+    classes: PropType.string,
+    children: PropType.node.isRequired
 };
 
 IconButton.defaultProps = {

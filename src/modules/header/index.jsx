@@ -8,7 +8,9 @@ export const Header = () => {
         <div className="header light p-1">
             <Avatar>{'N'}</Avatar>
             <Button variant="contained">Click Me</Button>
-            <IconButton icon="+"/>
+            <IconButton>
+                <i className="fab fa-adn"></i>
+            </IconButton>
         </div>
     );
 }

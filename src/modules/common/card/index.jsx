@@ -8,7 +8,9 @@ export const Card = (props) => {
             <div className="card-header p-2">
                 <div className="push-away mb-1">
                     <span className="id">000001</span>
-                    <IconButton variant="icon-only" size="small" icon="|>"></IconButton>
+                    <IconButton variant="icon-only" size="small">
+                        <i className="fab fa-adn"></i>
+                    </IconButton>
                 </div>
                 <span className="title">my first Task</span>
             </div>
@@ -18,19 +20,27 @@ export const Card = (props) => {
             </div>
             <div className="controls p-2 push-away">
                 <div className="control">
-                    <IconButton variant="icon-only" size="small" icon="@"></IconButton>
+                    <IconButton variant="icon-only" size="small">
+                        <i className="fas fa-calculator"></i>
+                    </IconButton>
                     <span className="count">0</span>
                 </div>
                 <div className="control">
-                    <IconButton variant="icon-only" size="small" icon="@"></IconButton>
+                    <IconButton variant="icon-only" size="small">
+                        <i className="fab fa-adn"></i>
+                    </IconButton>
                     <span className="count">0</span>
                 </div>
                 <div className="control">
-                    <IconButton variant="icon-only" size="small" icon="@"></IconButton>
+                    <IconButton variant="icon-only" size="small">
+                        <i className="fab fa-adn"></i>
+                    </IconButton>
                     <span className="count">0</span>
                 </div>
                 <div className="control">
-                    <IconButton variant="icon-only" size="small" icon="@"></IconButton>
+                    <IconButton variant="icon-only" size="small">
+                        <i className="fab fa-adn"></i>
+                    </IconButton>
                     <span className="count">0</span>
                 </div>
             </div>

@@ -49,6 +49,8 @@
 
     .controls {
         .control {
+            display: inline-flex;
+            align-items: center;
             margin-right: 8px;
             .count {
                 font-size: 1.2rem ;
