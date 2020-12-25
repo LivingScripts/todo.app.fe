@@ -29,7 +29,7 @@ export default class App extends React.Component {
     return <div>
       <Header/>
       <Card></Card>
-      <Menu menuItems={[{ label: 'lorem', value: 1 }, { label: 'lorem ipsum', value: 2 }, { label: 'ipsum dolor', value: 3 }, { label: 'lorem ipsum dolor sit amet, lorem ipsum dolor sit amet, lorem ipsum dolor sit amet, lorem ipsum dolor sit amet, lorem ipsum dolor sit amet', value: 4 }]} selectionChanged={console.log}>
+      <Menu menuItems={[{ label: 'lorem', value: 1 }, { label: 'lorem ipsum', value: 2 }, { label: 'ipsum dolor', value: 3 }, { label: 'lorem ipsum dolor sit amet, lorem ipsum dolor sit amet, lorem ipsum dolor sit amet, lorem ipsum dolor sit amet, lorem ipsum dolor sit amet', value: 4 }]} selectionChanged={() => { }}>
         <Button variant="contained">menu</Button>
       </Menu>
     </div>;

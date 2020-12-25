@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import './menu.styles.scss';
 import PropTypes from 'prop-types';
 import { ngIf } from '../../../utils';
+import { useClickAway } from '../hooks/';
 
 export const Menu = (props) => {
     // state
     const [isOpen, setIsOpen] = useState(false);
+    const node = useClickAway(() => { setIsOpen(false) });
 
     const menuItemClick = (value) => {
-        setIsOpen(!open);
         props.selectionChanged(value);
     };
 
@@ -28,7 +29,7 @@ export const Menu = (props) => {
     };
 
     return (
-        <div className="menu-container">
+        <div ref={node} className="menu-container">
             <span onClick={() => setIsOpen(!isOpen)}>
                 { React.Children.only(props.children) }
             </span>
@@ -45,6 +46,6 @@ Menu.propTypes = {
 };
 
 Menu.defaultProps = {
-    selectionChanged: () => { return null; },
+    selectionChanged: () => null,
     maxHeight: ''
 };
