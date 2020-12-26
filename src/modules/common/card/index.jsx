@@ -3,7 +3,6 @@ import './card.styles.scss';
 import PropTypes from 'prop-types';
 import { IconButton } from '../button/';
 import { Menu } from '../menu/';
-import { Tooltip } from '../tooltip/';
 import { addClasses, ngClass } from '../../../utils';
 
 export const Card = (props) => {
@@ -17,7 +16,13 @@ export const Card = (props) => {
 				<div className="push-away mb-1">
 					<span className="id">000001</span>
 					<span className="controls">
-						<IconButton onClick={toggleStarredProp} variant="icon-only" size="small">
+						<IconButton
+							onClick={toggleStarredProp}
+							variant="icon-only"
+							size="small"
+							tooltip="Star this task"
+							tooltipPlacement="bottom"
+						>
 							<i
 								className={addClasses(
 									'star',
@@ -34,7 +39,12 @@ export const Card = (props) => {
 								{ label: 'low', value: 'low' }
 							]}
 						>
-							<IconButton variant="icon-only" size="small">
+							<IconButton
+								variant="icon-only"
+								size="small"
+								tooltip="Set task priority"
+								tooltipPlacement="bottom"
+							>
 								<i className="fal fa-flag"></i>
 							</IconButton>
 						</Menu>
@@ -47,7 +57,12 @@ export const Card = (props) => {
 								{ label: 'Cancelled', value: 'cancelled' }
 							]}
 						>
-							<IconButton variant="icon-only" size="small">
+							<IconButton
+								variant="icon-only"
+								size="small"
+								tooltip="Set task progress"
+								tooltipPlacement="bottom"
+							>
 								<i className="far fa-circle"></i>
 							</IconButton>
 						</Menu>
@@ -70,23 +85,43 @@ export const Card = (props) => {
 			</div>
 			<div className="controls p-2 push-away">
 				<div className="control">
-					<IconButton variant="icon-only" size="small">
+					<IconButton
+						variant="icon-only"
+						size="small"
+						tooltip="Start date"
+						tooltipPlacement="bottom"
+					>
 						<i className="fal fa-calendar-check"></i>
 					</IconButton>
 				</div>
 				<div className="control">
-					<IconButton variant="icon-only" size="small">
+					<IconButton
+						variant="icon-only"
+						size="small"
+						tooltip="End date"
+						tooltipPlacement="bottom"
+					>
 						<i className="fal fa-calendar-times"></i>
 					</IconButton>
 				</div>
 				<div className="control">
-					<IconButton variant="icon-only" size="small">
+					<IconButton
+						variant="icon-only"
+						size="small"
+						tooltip="Sub tasks"
+						tooltipPlacement="bottom"
+					>
 						<i className="fal fa-tasks"></i>
 					</IconButton>
 					<span className="count">0</span>
 				</div>
 				<div className="control">
-					<IconButton variant="icon-only" size="small">
+					<IconButton
+						variant="icon-only"
+						size="small"
+						tooltip="Attachments"
+						tooltipPlacement="bottom"
+					>
 						<i className="fal fa-paperclip"></i>
 					</IconButton>
 					<span className="count">0</span>

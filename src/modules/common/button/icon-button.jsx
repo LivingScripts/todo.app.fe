@@ -1,7 +1,8 @@
 import React from 'react';
 import './button.styles.scss';
 import PropType from 'prop-types';
-import { addClasses } from '../../../utils';
+import { Tooltip } from '../tooltip/';
+import { addClasses, conditionalWrapper } from '../../../utils';
 
 const variantTypes = ['icon-only', 'contained'];
 const colorTypes = ['primary', 'secondary', 'default'];
@@ -39,10 +40,16 @@ const buttonType = (props) => {
 
 export const IconButton = (props) => {
 	const classes = buttonType(props);
-	return (
+	const mainButton = (
 		<button className={addClasses(classes, 'btn', props.classes)} onClick={props.onClick}>
 			{React.Children.only(props.children)}
 		</button>
+	);
+	return conditionalWrapper(
+		props.tooltip,
+		Tooltip,
+		{ render: props.tooltip, placement: props.tooltipPlacement },
+		mainButton
 	);
 };
 
@@ -52,7 +59,9 @@ IconButton.propTypes = {
 	size: PropType.oneOf(sizeTypes),
 	classes: PropType.string,
 	children: PropType.node.isRequired,
-	onClick: PropType.func
+	onClick: PropType.func,
+	tooltip: PropType.node,
+	tooltipPlacement: PropType.string
 };
 
 IconButton.defaultProps = {
@@ -60,5 +69,6 @@ IconButton.defaultProps = {
 	color: 'defualt',
 	size: 'normal',
 	classes: '',
-	onClick: () => {}
+	onClick: () => {},
+	tooltipPlacement: 'auto'
 };

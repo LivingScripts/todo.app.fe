@@ -16,7 +16,13 @@ export const Tooltip = (props) => {
     const hide = () => setActive(false);
     const show = () => setActive(true);
 
-    const { styles, attributes } = usePopper(tooltipContainerRef, tooltipRef, { placement: props.placement });
+    const { styles, attributes } = usePopper(
+            tooltipContainerRef,
+            tooltipRef,
+            {
+                placement: props.placement,
+                modifiers: [{ name: 'offset', options: { offset: [3, 3] } }]
+            });
 
     let tooltipDomNode = document.querySelector(`#${tooltipId}`);
     if (!tooltipDomNode) {
@@ -28,7 +34,7 @@ export const Tooltip = (props) => {
     const tooltipPortal =
         ReactDOM.createPortal(
             <span
-                className={addClasses(props.classes, 'p-1 m-1 tooltip-box')}
+                className={addClasses(props.classes, 'p-1 tooltip-box')}
                 ref={setTooltipRef}
                 style={styles.popper}
                 {...attributes.popper}

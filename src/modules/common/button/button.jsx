@@ -1,7 +1,8 @@
 import React from 'react';
 import './button.styles.scss';
 import PropType from 'prop-types';
-import { addClasses } from '../../../utils';
+import { Tooltip } from '../tooltip/';
+import { addClasses, conditionalWrapper } from '../../../utils';
 
 const variantTypes = ['contained', 'outlined', 'text'];
 const colorTypes = ['primary', 'secondary', 'default'];
@@ -37,12 +38,18 @@ const buttonType = (props) => {
 
 export const Button = (props) => {
 	const classes = buttonType(props);
-	return (
+	const mainButton = (
 		<button className={addClasses(classes, 'btn btn-full', props.classes)} onClick={props.onClick}>
 			{props.startIcon && <span>{props.startIcon}</span>}
 			{props.children}
 			{props.endIcon && <span>{props.endIcon}</span>}
 		</button>
+	);
+	return conditionalWrapper(
+		props.tooltip,
+		Tooltip,
+		{ render: props.tooltip, placement: props.tooltipPlacement },
+		mainButton
 	);
 };
 
@@ -53,7 +60,9 @@ Button.propTypes = {
 	variant: PropType.oneOf(variantTypes),
 	color: PropType.oneOf(colorTypes),
 	classes: PropType.string,
-	onClick: PropType.func
+	onClick: PropType.func,
+	tooltip: PropType.node,
+	tooltipPlacement: PropType.string
 };
 
 Button.defaultProps = {
@@ -62,5 +71,6 @@ Button.defaultProps = {
 	variant: 'text',
 	color: 'default',
 	classes: '',
-	onClick: () => {}
+	onClick: () => {},
+	tooltipPlacement: 'auto'
 };
