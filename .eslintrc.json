@@ -24,6 +24,7 @@
         "react-hooks/exhaustive-deps": "warn",
         "semi": 0,
         "indent": "off",
-        "no-tabs": "off"
+        "no-tabs": "off",
+        "no-unused-vars": "warn"
     }
 }
