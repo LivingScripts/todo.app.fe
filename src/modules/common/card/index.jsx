@@ -7,17 +7,16 @@ import { addClasses, ngClass } from '../../../utils';
 
 export const Card = (props) => {
     const [starred, setStarred] = useState(props.starred);
-	// const toggleStarredProp = () => {
-    //     console.log('clicked');
-	// 	setStarred(!starred);
-	// };
+	const toggleStarredProp = () => {
+		setStarred(!starred);
+	};
 	return (
 		<div className="card">
 			<div className="card-header p-2">
 				<div className="push-away mb-1">
 					<span className="id">000001</span>
 					<span className="controls">
-						<IconButton onClick={() => { console.log('clicked') }} variant="icon-only" size="small">
+						<IconButton onClick={toggleStarredProp} variant="icon-only" size="small">
 							<i
 								className={addClasses(
 									'star',
