@@ -1,0 +1,7 @@
+@import '../../../variables.scss';
+.tooltip-box {
+    background-color: rgba($color: $bg-dark, $alpha: 0.9);
+    border-radius: 4px;
+    color: $font-color-default;
+    font-size: $font-md;
+}

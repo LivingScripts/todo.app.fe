@@ -3,6 +3,7 @@ import './card.styles.scss';
 import PropTypes from 'prop-types';
 import { IconButton } from '../button/';
 import { Menu } from '../menu/';
+import { Tooltip } from '../tooltip/';
 import { addClasses, ngClass } from '../../../utils';
 
 export const Card = (props) => {
@@ -16,14 +17,16 @@ export const Card = (props) => {
 				<div className="push-away mb-1">
 					<span className="id">000001</span>
 					<span className="controls">
-						<IconButton onClick={toggleStarredProp} variant="icon-only" size="small">
-							<i
-								className={addClasses(
-									'star',
-									ngClass({ 'fal fa-star': !starred, 'fas fa-star': starred })
-								)}
-							></i>
-						</IconButton>
+						<Tooltip render="Imma tooltip">
+							<IconButton onClick={toggleStarredProp} variant="icon-only" size="small">
+								<i
+									className={addClasses(
+										'star',
+										ngClass({ 'fal fa-star': !starred, 'fas fa-star': starred })
+									)}
+								></i>
+							</IconButton>
+						</Tooltip>
 						<Menu
 							classes="ml-1"
 							menuItems={[
