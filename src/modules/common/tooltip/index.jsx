@@ -4,8 +4,7 @@ import { usePopper } from 'react-popper';
 import PropTypes from 'prop-types';
 import './tooltip.styles.scss';
 import { addClasses, ngIf } from '../../../utils';
-
-const tooltipId = 'todo-tooltip';
+import { DOM_PORTAL_CONTAINER } from '../../../constants';
 
 export const Tooltip = (props) => {
     // state
@@ -24,13 +23,6 @@ export const Tooltip = (props) => {
                 modifiers: [{ name: 'offset', options: { offset: [3, 3] } }]
             });
 
-    let tooltipDomNode = document.querySelector(`#${tooltipId}`);
-    if (!tooltipDomNode) {
-        tooltipDomNode = document.createElement('div');
-        tooltipDomNode.setAttribute('id', tooltipId);
-        document.body.appendChild(tooltipDomNode);
-    }
-
     const tooltipPortal =
         ReactDOM.createPortal(
             <span
@@ -41,7 +33,7 @@ export const Tooltip = (props) => {
             >
                 {props.render}
             </span>,
-            tooltipDomNode
+            DOM_PORTAL_CONTAINER
         );
 
     return (
@@ -51,6 +43,7 @@ export const Tooltip = (props) => {
                 onBlur={hide}
                 onMouseEnter={show}
                 onMouseLeave={hide}
+                onClick={hide}
                 ref={setTooltipContainerRef}
             >
                 {props.children}

@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import './menu.styles.scss';
 import PropTypes from 'prop-types';
 import { ngIf, addClasses } from '../../../utils';
 import { useClickAway } from '../hooks/';
+import { DOM_PORTAL_CONTAINER } from '../../../constants';
+import { usePopper } from 'react-popper';
 
 export const Menu = (props) => {
     // state
     const [isOpen, setIsOpen] = useState(false);
-    const node = useClickAway(() => { setIsOpen(false) });
+    const [menuContainerRef, setMenuContainerRef] = useState(null);
+    const [menuListRef, setMenuListRef] = useState(null);
+    useClickAway(menuContainerRef, () => { setIsOpen(false) });
 
     const menuItemClick = (value) => {
         props.selectionChanged(value);
     };
+
+    const { styles, attributes } = usePopper(
+        menuContainerRef,
+        menuListRef,
+        { placement: 'bottom-start' }
+    );
 
     const createMenuItem = ({ label, value }, key) => {
         return <li key={key} className="item p-3" onClick={() => menuItemClick(value)}>
@@ -21,19 +32,34 @@ export const Menu = (props) => {
 
     const createMenuList = (items, maxHeight) => {
         const menuList = items.map((item, key) => createMenuItem(item, key));
-        const styles = {
+        const scrollingListStyles = {
             maxHeight: maxHeight ? (maxHeight + 'px') : 'none',
-            overflowY: 'auto'
+            overflowY: 'auto',
+            ...styles.popper
         };
-        return <ul style={styles} className="menu-list pt-2 pb-2">{ menuList }</ul>;
+        return (
+            <ul ref={setMenuListRef}
+                style={scrollingListStyles}
+                {...attributes.popper}
+                className="menu-list pt-2 pb-2"
+            >
+                { menuList }
+            </ul>
+        );
     };
 
+    const menuListPortal =
+        ReactDOM.createPortal(
+            createMenuList(props.menuItems, props.maxHeight),
+            DOM_PORTAL_CONTAINER
+        );
+
     return (
-        <div ref={node} className={addClasses(props.classes, 'menu-container')}>
+        <div ref={setMenuContainerRef} className={addClasses(props.classes, 'menu-container')}>
             <span onClick={() => setIsOpen(!isOpen)}>
-                { React.Children.only(props.children) }
+                {React.Children.only(props.children)}
             </span>
-            { ngIf(isOpen, createMenuList(props.menuItems, props.maxHeight)) }
+            {ngIf(isOpen, menuListPortal)}
         </div>
     );
 };
