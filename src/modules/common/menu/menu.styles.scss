@@ -16,12 +16,17 @@
     box-shadow: 0 0 3px $separator-color;
 
     &>.item {
-        display: block;
+        display: flex;
+        align-items: center;
         font-size: 1.4rem;
         cursor: pointer;
         overflow: hidden;
         white-space: pre;
         text-overflow: ellipsis;
+        &>span {
+            width: 22px;
+            text-align: center;
+        }
     }
 
     &>.item:hover {

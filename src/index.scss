@@ -298,3 +298,35 @@ ul {
   align-items: center;
   justify-content: space-between;
 }
+
+.color-default {
+  color: $undefined;
+}
+
+.color-progress {
+  color: $pending
+}
+
+.color-success {
+  color: $success;
+}
+
+.color-error {
+  color: $error;
+}
+
+.font-default-size {
+  font-size: $font-default;
+}
+
+.font-md-size {
+  font-size: $font-md;
+}
+
+.font-lg-size {
+  font-size: $font-lg;
+}
+
+.font-xl-size {
+  font-size: $font-xl;
+}

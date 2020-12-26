@@ -6,7 +6,7 @@ import { Menu } from '../menu/';
 import { addClasses, ngClass } from '../../../utils';
 
 export const Card = (props) => {
-    const [starred, setStarred] = useState(props.starred);
+	const [starred, setStarred] = useState(props.starred);
 	const toggleStarredProp = () => {
 		setStarred(!starred);
 	};
@@ -33,10 +33,26 @@ export const Card = (props) => {
 						<Menu
 							classes="ml-1"
 							menuItems={[
-								{ label: 'Critical', value: 'critical' },
-								{ label: 'High', value: 'high' },
-								{ label: 'Medium', value: 'medium' },
-								{ label: 'low', value: 'low' }
+								{
+									label: 'Critical',
+									value: 'critical',
+									start: <i className="color-error fad fa-triangle"></i>
+								},
+								{
+									label: 'High',
+									value: 'high',
+									start: <i className="color-error fal fa-triangle"></i>
+								},
+								{
+									label: 'Medium',
+									value: 'medium',
+									start: <i className="color-default far fa-angle-double-up"></i>
+								},
+								{
+									label: 'Low',
+									value: 'low',
+									start: <i className="color-default far fa-angle-up"></i>
+								}
 							]}
 						>
 							<IconButton
@@ -51,10 +67,26 @@ export const Card = (props) => {
 						<Menu
 							classes="ml-1"
 							menuItems={[
-								{ label: 'Todo', value: 'todo' },
-								{ label: 'In Progress', value: 'inProgress' },
-								{ label: 'Completed', value: 'completed' },
-								{ label: 'Cancelled', value: 'cancelled' }
+								{
+									label: 'Todo',
+									value: 'todo',
+									start: <i className="color-default far fa-circle"></i>
+								},
+								{
+									label: 'In Progress',
+									value: 'inProgress',
+									start: <i className="color-progress far fa-circle"></i>
+								},
+								{
+									label: 'Completed',
+									value: 'completed',
+									start: <i className="color-success far fa-check-circle"></i>
+								},
+								{
+									label: 'Cancelled',
+									value: 'cancelled',
+									start: <i className="color-error far fa-times-circle"></i>
+								}
 							]}
 						>
 							<IconButton
@@ -85,43 +117,23 @@ export const Card = (props) => {
 			</div>
 			<div className="controls p-2 push-away">
 				<div className="control">
-					<IconButton
-						variant="icon-only"
-						size="small"
-						tooltip="Start date"
-						tooltipPlacement="bottom"
-					>
+					<IconButton variant="icon-only" size="small" tooltip="Start date" tooltipPlacement="bottom">
 						<i className="fal fa-calendar-check"></i>
 					</IconButton>
 				</div>
 				<div className="control">
-					<IconButton
-						variant="icon-only"
-						size="small"
-						tooltip="End date"
-						tooltipPlacement="bottom"
-					>
+					<IconButton variant="icon-only" size="small" tooltip="End date" tooltipPlacement="bottom">
 						<i className="fal fa-calendar-times"></i>
 					</IconButton>
 				</div>
 				<div className="control">
-					<IconButton
-						variant="icon-only"
-						size="small"
-						tooltip="Sub tasks"
-						tooltipPlacement="bottom"
-					>
+					<IconButton variant="icon-only" size="small" tooltip="Sub tasks" tooltipPlacement="bottom">
 						<i className="fal fa-tasks"></i>
 					</IconButton>
 					<span className="count">0</span>
 				</div>
 				<div className="control">
-					<IconButton
-						variant="icon-only"
-						size="small"
-						tooltip="Attachments"
-						tooltipPlacement="bottom"
-					>
+					<IconButton variant="icon-only" size="small" tooltip="Attachments" tooltipPlacement="bottom">
 						<i className="fal fa-paperclip"></i>
 					</IconButton>
 					<span className="count">0</span>
@@ -136,5 +148,5 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-    starred: false
+	starred: false
 };

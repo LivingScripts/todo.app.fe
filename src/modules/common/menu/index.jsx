@@ -24,9 +24,10 @@ export const Menu = (props) => {
         { placement: 'bottom-start' }
     );
 
-    const createMenuItem = ({ label, value }, key) => {
-        return <li key={key} className="item p-3" onClick={() => menuItemClick(value)}>
-            { label }
+    const createMenuItem = (item, key) => {
+        return <li key={key} className={addClasses('item p-3', item.classes)} onClick={() => menuItemClick(item.value)}>
+            {ngIf(item.start, <span className="mr-3 font-lg-size">{item.start}</span>)}
+            {item.label}
         </li>;
     };
 
@@ -43,7 +44,7 @@ export const Menu = (props) => {
                 {...attributes.popper}
                 className="menu-list pt-2 pb-2"
             >
-                { menuList }
+                {menuList}
             </ul>
         );
     };
