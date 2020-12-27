@@ -1,0 +1,24 @@
+@import '../../../variables.scss';
+
+.add-task {
+    color: $font-color-disabled;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px dashed $separator-color;
+    height: 42px;
+    overflow: hidden;
+    position: relative;
+    &>input {
+        flex-grow: 1;
+        border: none;
+        background-color: transparent;
+        color: $font-color-default;
+    }
+    .placeholder {
+        cursor: pointer;
+        width: 100%;
+    }
+    .error-msg {
+        background-color: rgba($color: $bg-dark, $alpha: 0.9);
+    }
+}

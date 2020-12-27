@@ -1,14 +1,15 @@
 import { createElement } from 'react';
 
 export const ngClass = (classesWithConditions) => {
-    return Object.keys(classesWithConditions).reduce((acc, cls) => {
-        acc += classesWithConditions[cls] ? cls : '';
+    const applicableClasses = Object.keys(classesWithConditions).reduce((acc, cls) => {
+        acc.push(classesWithConditions[cls] ? cls : '');
         return acc;
-    }, '');
-}
+    }, []);
+    return applicableClasses.join(' ');
+};
 
-export const ngIf = (predicate, component) => {
-    return predicate ? component : null;
+export const ngIf = (predicate, component, fallback = null) => {
+    return predicate ? component : fallback;
 };
 
 export const addClasses = (...classes) => classes.join(' ');

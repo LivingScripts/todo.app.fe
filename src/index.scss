@@ -29,12 +29,15 @@ html {
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
+  background-color: $bg-dark;
+  box-sizing: border-box;
 }
 
 span {
@@ -312,7 +315,7 @@ ul {
 }
 
 .color-error {
-  color: $error;
+  color: $error !important;
 }
 
 .font-default-size {
@@ -329,4 +332,8 @@ ul {
 
 .font-xl-size {
   font-size: $font-xl;
+}
+
+.error {
+  border-color: $error !important;
 }
