@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './menu.styles.scss';
 import PropTypes from 'prop-types';
@@ -9,9 +9,10 @@ import { usePopper } from 'react-popper';
 
 export const Menu = (props) => {
     // state
-    const [isOpen, setIsOpen] = useState(false);
-    const [menuContainerRef, setMenuContainerRef] = useState(null);
-    const [menuListRef, setMenuListRef] = useState(null);
+    const [isOpen, setIsOpen] = React.useState(false);
+    const menuContainerRef = React.useRef(null);
+    const menuListRef = React.useRef(null);
+
     useClickAway(menuContainerRef, () => { setIsOpen(false) });
 
     const menuItemClick = (value) => {
@@ -19,16 +20,22 @@ export const Menu = (props) => {
     };
 
     const { styles, attributes } = usePopper(
-        menuContainerRef,
-        menuListRef,
+        menuContainerRef.current,
+        menuListRef.current,
         { placement: 'bottom-start' }
     );
 
     const createMenuItem = (item, key) => {
-        return <li key={key} className={addClasses('item p-3', item.classes)} onClick={() => menuItemClick(item.value)}>
-            {ngIf(item.start, <span className="mr-3 font-lg-size">{item.start}</span>)}
-            {item.label}
-        </li>;
+        return (
+            <li
+                key={key}
+                className={addClasses('item p-3', item.classes)}
+                onClick={() => menuItemClick(item.value)}
+            >
+                {ngIf(item.start, <span className="mr-3 font-lg-size">{item.start}</span>)}
+                {item.label}
+            </li>
+        );
     };
 
     const createMenuList = (items, maxHeight) => {
@@ -39,7 +46,7 @@ export const Menu = (props) => {
             ...styles.popper
         };
         return (
-            <ul ref={setMenuListRef}
+            <ul ref={menuListRef}
                 style={scrollingListStyles}
                 {...attributes.popper}
                 className="menu-list pt-2 pb-2"
@@ -56,7 +63,7 @@ export const Menu = (props) => {
         );
 
     return (
-        <div ref={setMenuContainerRef} className={addClasses(props.classes, 'menu-container')}>
+        <div ref={menuContainerRef} className={addClasses(props.classes, 'menu-container')}>
             <span onClick={() => setIsOpen(!isOpen)}>
                 {React.Children.only(props.children)}
             </span>

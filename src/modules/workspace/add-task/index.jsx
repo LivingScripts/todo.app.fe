@@ -1,16 +1,16 @@
 import React from 'react';
 import './addtask.styles.scss';
-import { useClickAway } from '../../common/hooks/';
 import { IconButton } from '../../common/button/';
-import { addClasses, ngClass, ngIf } from '../../../utils';
+import { ngClass, ngIf } from '../../../utils';
 import { usePopper } from 'react-popper';
+import { useClickAway } from '../../common/hooks/';
 
 export const AddTask = (props) => {
-    const [newTaskInputActive, setNewTaskInputActive] = React.useState(false);
-    const [newTaskInputRef, setNewTaskInputRef] = React.useState(null);
+    const [taskInputActive, setTaskInputActive] = React.useState(false);
     const [inputVal, setInputVal] = React.useState(null);
     const [error, setError] = React.useState(false);
-    const [errorPopperRef, setErrorPopperRef] = React.useState(null);
+    const taskInputRef = React.useRef(null);
+    const errorPopperRef = React.useRef(null);
     const maxInputLength = 80;
 
     const onInputChange = event => {
@@ -23,18 +23,18 @@ export const AddTask = (props) => {
         }
     };
 
-    const { styles, attributes } = usePopper(newTaskInputRef, errorPopperRef, {
+    const { styles, attributes } = usePopper(taskInputRef.current, errorPopperRef.current, {
         placement: 'bottom-start'
     });
 
     const placeholder = (
-        <span className="placeholder font-lg-size p-2" onClick={() => setNewTaskInputActive(true)}>
+        <span className="placeholder font-lg-size p-2" onClick={() => setTaskInputActive(true)}>
             <i className="color-success far fa-plus"></i>
             <span className="ml-3">Add New Task</span>
         </span>
     );
 
-    useClickAway(newTaskInputRef, () => setNewTaskInputActive(false));
+    useClickAway(taskInputRef, () => setTaskInputActive(false));
 
     const newTaskInput = (
         <>
@@ -49,7 +49,7 @@ export const AddTask = (props) => {
                 <IconButton
                     variant="icon-only"
                     size="small"
-                    onClick={() => setNewTaskInputActive(false)}
+                    onClick={() => setTaskInputActive(false)}
                 >
                     <i className="fal fa-times"></i>
                 </IconButton>
@@ -61,12 +61,12 @@ export const AddTask = (props) => {
         <>
             <div
                 className={ngClass({ error, 'add-task push-away': true })}
-                ref={setNewTaskInputRef}
+                ref={taskInputRef}
             >
-                { ngIf(newTaskInputActive, newTaskInput, placeholder) }
+                { ngIf(taskInputActive, newTaskInput, placeholder) }
             </div>
             { ngIf(error, <span
-                    ref={setErrorPopperRef}
+                    ref={errorPopperRef}
                     className="error-msg color-error font-md-size p-2"
                     styles={styles.popper}
                     {...attributes.popper}
