@@ -7,7 +7,41 @@ export const Workspace = (props) => {
     return (
         <div className="workspace-container">
             <AddTask/>
-            <Card></Card>
+            <div className="grid-row mt-4">
+                <div className="grid-column">
+                    <Card></Card>
+                </div>
+                <div className="grid-column">
+                    <Card></Card>
+                </div>
+                <div className="grid-column">
+                    <Card></Card>
+                </div>
+                <div className="grid-column">
+                    <Card></Card>
+                </div>
+                <div className="grid-column">
+                    <Card></Card>
+                </div>
+                <div className="grid-column">
+                    <Card></Card>
+                </div>
+                <div className="grid-column">
+                    <Card></Card>
+                </div>
+                <div className="grid-column">
+                    <Card></Card>
+                </div>
+                <div className="grid-column">
+                    <Card></Card>
+                </div>
+                <div className="grid-column">
+                    <Card></Card>
+                </div>
+                <div className="grid-column">
+                    <Card></Card>
+                </div>
+            </div>
         </div>
     );
 };
