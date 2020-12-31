@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { IconButton } from '../button/';
 import { Menu } from '../menu/';
 import { addClasses, ngClass } from '../../../utils';
+import { LinearProgressbar } from '../static-linear-progressbar';
+import { Tooltip } from '../tooltip';
 
 export const Card = (props) => {
 	const [starred, setStarred] = useState(props.starred);
@@ -12,131 +14,88 @@ export const Card = (props) => {
 	};
 	return (
 		<div className="card">
-			<div className="card-header p-2">
-				<div className="push-away mb-1">
-					<span className="id">000001</span>
-					<span className="controls">
+			<div className="label-indicator">
+			</div>
+			<div className="details p-3">
+				<div className="card-header">
+				<span className="controls push inline">
+					<IconButton
+						onClick={toggleStarredProp}
+						variant="icon-only"
+						size="small"
+						tooltip="Star this task"
+						tooltipPlacement="bottom"
+					>
+						<i
+							className={addClasses('star', ngClass({ 'fal fa-star': !starred, 'fas fa-star': starred }))}
+						></i>
+					</IconButton>
+					<Menu
+						classes="ml-1"
+						menuItems={[
+							{
+								label: 'Todo',
+								value: 'todo',
+								start: <i className="color-default far fa-circle"></i>
+							},
+							{
+								label: 'In Progress',
+								value: 'inProgress',
+								start: <i className="color-progress far fa-circle"></i>
+							},
+							{
+								label: 'Completed',
+								value: 'completed',
+								start: <i className="color-success far fa-check-circle"></i>
+							},
+							{
+								label: 'Cancelled',
+								value: 'cancelled',
+								start: <i className="color-error far fa-times-circle"></i>
+							}
+						]}
+					>
 						<IconButton
-							onClick={toggleStarredProp}
 							variant="icon-only"
 							size="small"
-							tooltip="Star this task"
+							tooltip="Set task progress"
 							tooltipPlacement="bottom"
 						>
-							<i
-								className={addClasses(
-									'star',
-									ngClass({ 'fal fa-star': !starred, 'fas fa-star': starred })
-								)}
-							></i>
+							<i className="far fa-circle"></i>
 						</IconButton>
-						<Menu
-							classes="ml-1"
-							menuItems={[
-								{
-									label: 'Critical',
-									value: 'critical',
-									start: <i className="color-error fad fa-triangle"></i>
-								},
-								{
-									label: 'High',
-									value: 'high',
-									start: <i className="color-error fal fa-triangle"></i>
-								},
-								{
-									label: 'Medium',
-									value: 'medium',
-									start: <i className="color-default far fa-angle-double-up"></i>
-								},
-								{
-									label: 'Low',
-									value: 'low',
-									start: <i className="color-default far fa-angle-up"></i>
-								}
-							]}
-						>
-							<IconButton
-								variant="icon-only"
-								size="small"
-								tooltip="Set task priority"
-								tooltipPlacement="bottom"
-							>
-								<i className="fal fa-flag"></i>
-							</IconButton>
-						</Menu>
-						<Menu
-							classes="ml-1"
-							menuItems={[
-								{
-									label: 'Todo',
-									value: 'todo',
-									start: <i className="color-default far fa-circle"></i>
-								},
-								{
-									label: 'In Progress',
-									value: 'inProgress',
-									start: <i className="color-progress far fa-circle"></i>
-								},
-								{
-									label: 'Completed',
-									value: 'completed',
-									start: <i className="color-success far fa-check-circle"></i>
-								},
-								{
-									label: 'Cancelled',
-									value: 'cancelled',
-									start: <i className="color-error far fa-times-circle"></i>
-								}
-							]}
-						>
-							<IconButton
-								variant="icon-only"
-								size="small"
-								tooltip="Set task progress"
-								tooltipPlacement="bottom"
-							>
-								<i className="far fa-circle"></i>
-							</IconButton>
-						</Menu>
-					</span>
-				</div>
-				<span className="title">my first Task</span>
+					</Menu>
+				</span>
+				<Tooltip render="full text" placement="top">
+					<span className="title mt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste sapiente similique possimus rerum facilis veniam voluptates impedit amet voluptatem sed?</span>
+				</Tooltip>
 			</div>
-			<p className="description m-2 mb-4">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est culpa sequi ratione error, asperiores
-				necessitatibus mollitia repellendus ex nulla eius qui dolorum! Quia maiores fugit delectus, optio
-				deserunt quasi earum distinctio totam sequi error obcaecati voluptatem temporibus, porro molestias neque
-				ab! Reiciendis, enim ullam, tempore suscipit consequatur distinctio voluptates dolorem praesentium
-				facilis labore, iure sapiente eveniet? Non veritatis culpa, dolore repellat eaque, porro aliquid
-				possimus odio blanditiis saepe molestiae repudiandae in aliquam vel praesentium ipsum at doloremque
-				officia placeat unde repellendus enim ex nulla. Facilis cumque, nam mollitia dolore repudiandae
-				necessitatibus voluptate, alias laborum animi pariatur quia sapiente esse similique.
-			</p>
-			<div className="progress-bar-container pl-4 pr-4">
-				<div></div>
-			</div>
-			<div className="controls p-2 push-away">
-				<div className="control">
-					<IconButton variant="icon-only" size="small" tooltip="Start date" tooltipPlacement="bottom">
-						<i className="fal fa-calendar-check"></i>
-					</IconButton>
-				</div>
-				<div className="control">
-					<IconButton variant="icon-only" size="small" tooltip="End date" tooltipPlacement="bottom">
-						<i className="fal fa-calendar-times"></i>
-					</IconButton>
-				</div>
-				<div className="control">
-					<IconButton variant="icon-only" size="small" tooltip="Sub tasks" tooltipPlacement="bottom">
-						<i className="fal fa-tasks"></i>
-					</IconButton>
-					<span className="count">0</span>
-				</div>
-				<div className="control">
-					<IconButton variant="icon-only" size="small" tooltip="Attachments" tooltipPlacement="bottom">
-						<i className="fal fa-paperclip"></i>
-					</IconButton>
-					<span className="count">0</span>
+				<LinearProgressbar
+					classes="progress-margins"
+					progress={80}
+				/>
+				<div className="controls push row">
+					{/* <div className="control">
+						<IconButton variant="icon-only" size="small" tooltip="Start date" tooltipPlacement="bottom">
+							<i className="fal fa-calendar-check"></i>
+						</IconButton>
+					</div>
+					<div className="control">
+						<IconButton variant="icon-only" size="small" tooltip="End date" tooltipPlacement="bottom">
+							<i className="fal fa-calendar-times"></i>
+						</IconButton>
+					</div> */}
+					<div className="control">
+						<IconButton variant="icon-only" size="small" tooltip="Sub tasks" tooltipPlacement="bottom">
+							<i className="fal fa-tasks"></i>
+						</IconButton>
+						<span className="count">0</span>
+					</div>
+					<div className="control">
+						<IconButton variant="icon-only" size="small" tooltip="Attachments" tooltipPlacement="bottom">
+							<i className="fal fa-paperclip"></i>
+						</IconButton>
+						<span className="count">0</span>
+					</div>
 				</div>
 			</div>
 		</div>

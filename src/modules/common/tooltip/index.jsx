@@ -38,7 +38,7 @@ export const Tooltip = (props) => {
 
     return (
         <>
-            <span
+            <div
                 onFocus={show}
                 onBlur={hide}
                 onMouseEnter={show}
@@ -47,15 +47,15 @@ export const Tooltip = (props) => {
                 ref={setTooltipContainerRef}
             >
                 {props.children}
-            </span>
+            </div>
             {ngIf(active, tooltipPortal)}
         </>);
 };
 
 Tooltip.propTypes = {
     children: PropTypes.node,
-    render: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    placement: PropTypes.string.isRequired,
+    render: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+    placement: PropTypes.string,
     classes: PropTypes.string
 };
 

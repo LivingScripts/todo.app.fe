@@ -348,6 +348,18 @@ ul {
 }
 
 .grid-column {
-  flex-basis: 20%;
+  flex-basis: calc(100% / 3);
   padding: 15px;
+}
+
+.push {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  &.inline {
+    flex-direction: row;
+  }
+  &.columns {
+    flex-direction: column;
+  }
 }
