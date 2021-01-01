@@ -1,2 +1,6 @@
-.main {
+@import './variables.scss';
+
+.home {
+    display: flex;
+    align-items: stretch;
 }

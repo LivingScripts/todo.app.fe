@@ -3,6 +3,8 @@ import React from 'react';
 import { Header } from './modules/header/index';
 import './App.scss';
 import { Workspace } from './modules/workspace/';
+import { Button, IconButton } from './modules/common/button';
+import { Navbar } from './modules/navbar';
 
 export default class App extends React.Component {
   // deleteString(idx) {
@@ -24,12 +26,14 @@ export default class App extends React.Component {
       // )
       // ++i;
     // }
-    return <div>
-      <Header/>
-      <section className="p-4">
-        <Workspace/>
-      </section>
-    </div>;
+    return (
+      <div className="home">
+        <Navbar />
+        <section className="p-4">
+          <Workspace/>
+        </section>
+      </div>
+    )
   }
 }
 
