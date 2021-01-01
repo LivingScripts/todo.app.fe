@@ -338,20 +338,6 @@ ul {
   border-color: $error !important;
 }
 
-.grid-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-left: -15px;
-  margin-right: -15px;
-}
-
-.grid-column {
-  flex-basis: calc(100% / 3);
-  padding: 15px;
-}
-
 .push {
   display: flex;
   justify-content: flex-end;

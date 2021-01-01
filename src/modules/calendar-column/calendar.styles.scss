@@ -1,0 +1,54 @@
+@import '../../variables.scss';
+
+$highlight: rgba(#666, 0.5);
+
+.custom-styles {
+    width: 100% !important;
+    border-radius: 8px;
+    // background-color: $panel-bg-color !important;
+    // border: none !important;
+    // .react-calendar__navigation {
+    //     button {
+    //         color: $font-color-default !important;
+    //     }
+    //     button:enabled:hover,
+    //     button:enabled:focus {
+    //         background-color: $highlight !important;
+    //     }
+    // }
+    // .react-calendar__month-view__weekdays__weekday {
+    //     color: $font-color-default !important;
+    //     font-size: 1rem;
+    //     abbr {
+    //         text-decoration: none !important;
+    //     }
+    // }
+    // .react-calendar__month-view__days {
+    //     .react-calendar__tile {
+    //         color: $font-color-default;
+    //     }
+    //     .react-calendar__month-view__days__day {
+    //         color: $font-color-default;
+    //         &:enabled:hover,
+    //         &:enabled:focus {
+    //             background-color: $highlight !important;
+    //         }
+    //     }
+
+    //     .react-calendar__month-view__days__day--neighboringMonth {
+    //         color: $font-color-disabled;
+    //         &:enabled:hover,
+    //         &:enabled:focus {
+    //             background-color: $highlight !important;
+    //         }
+    //     }
+
+    //     .react-calendar__month-view__days__day--weekend {
+    //         color: $error;
+    //         &:enabled:hover,
+    //         &:enabled:focus {
+    //             background-color: $highlight !important;
+    //         }
+    //     }
+    // }
+}
