@@ -8,13 +8,23 @@ import { Stats } from '../stats-column';
 export const Workspace = (props) => {
   return (
     <div className="workspace-container">
-      <AddTask />
       <div className="grid-row mt-4">
         <div className="grid-column">
           <CalendarColumn />
         </div>
         <div className="grid-column">
-          <Card></Card>
+          <div className="mb-4">
+            <Card></Card>
+          </div>
+          <div className="mb-4">
+            <Card></Card>
+          </div>
+          <div className="mb-4">
+            <Card></Card>
+          </div>
+          <div className="mb-4">
+            <Card></Card>
+          </div>
         </div>
         <div className="grid-column">
           <Stats />
