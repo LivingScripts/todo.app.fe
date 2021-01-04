@@ -10,6 +10,17 @@ export const CalendarColumn = (props) => {
     });
     return (
         <div>
+          <div className="summary font-md-size push-away">
+            <i className="fad fa-coffee-togo color-default pic mr-2"></i>
+            <div className="description">
+              <h3 className="mb-3">
+                Hi, Nilesh!
+              </h3>
+              <p>
+                You have 2 tasks left for today, 1 high priority and 1 low priority. Already completed 3 tasks today.
+              </p>
+            </div>
+          </div>
           <Calendar
             className="custom-styles"
             onChange={onChange}

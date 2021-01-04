@@ -319,19 +319,19 @@ ul {
 }
 
 .font-default-size {
-  font-size: $font-default;
+  font-size: $font-default !important;
 }
 
 .font-md-size {
-  font-size: $font-md;
+  font-size: $font-md !important;
 }
 
 .font-lg-size {
-  font-size: $font-lg;
+  font-size: $font-lg !important;
 }
 
 .font-xl-size {
-  font-size: $font-xl;
+  font-size: $font-xl !important;
 }
 
 .error {
