@@ -2,8 +2,8 @@ import React from 'react';
 import './workspace.styles.scss';
 import { AddTask } from './add-task/';
 import { Card } from '../common/card/';
-import { CalendarColumn } from '../calendar-column';
-import { Stats } from '../stats-column';
+import { CalendarColumn } from './calendar-column';
+import { Stats } from './stats-column';
 import { Modal } from '../common/modal';
 
 export const Workspace = (props) => {
