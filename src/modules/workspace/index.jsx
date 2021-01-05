@@ -9,9 +9,6 @@ import { Modal } from '../common/modal';
 export const Workspace = (props) => {
   return (
     <div className="workspace-container">
-      <Modal isOpen={true}>
-        <Card />
-      </Modal>
       <div className="grid-row mt-4">
         <div className="grid-column">
           <CalendarColumn />
