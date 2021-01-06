@@ -1,23 +1,23 @@
 @import './variables.scss';
 @import './assets/fontawesome5/css/all.css';
 @font-face {
-  font-family: "Montserrat";
-  src: url("./assets/fonts/Montserrat-Regular.ttf") format("truetype");
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Montserrat";
-  src: url("./assets/fonts/Montserrat-Medium.ttf") format("truetype");
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Montserrat";
-  src: url("./assets/fonts/Montserrat-SemiBold.ttf") format("truetype");
-  font-weight: 600;
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -33,7 +33,7 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   background-color: $bg-dark;
@@ -303,15 +303,15 @@ ul {
 }
 
 .color-default {
-  color: $undefined;
+  color: $undefined !important;
 }
 
 .color-progress {
-  color: $pending
+  color: $pending !important;
 }
 
 .color-success {
-  color: $success;
+  color: $success !important;
 }
 
 .color-error {

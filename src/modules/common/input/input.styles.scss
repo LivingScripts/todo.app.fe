@@ -1,0 +1,21 @@
+@import '../../../variables.scss';
+
+.input-box {
+  background-color: transparent;
+  width: 100%;
+  color: $font-color-default;
+  border-bottom: 1px solid #fff;
+  label {
+    display: inline-block;
+    width: 100%;
+    color: inherit;
+    font-size: 1.2rem;
+  }
+  input {
+    color: inherit;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 1.6rem;
+  }
+}

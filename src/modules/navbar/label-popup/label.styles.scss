@@ -1,0 +1,39 @@
+@import '../../../variables.scss';
+
+.card-template {
+  color: $font-color-default;
+  width: 350px;
+  overflow-y: hidden;
+  button {
+    margin: 0;
+  }
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.label-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  .label-text {
+    font-size: 1.6rem;
+  }
+  .label-controls {
+    display: flex;
+    align-items: center;
+    .success-btn {
+      &.btn:hover {
+        color: $success !important;
+      }
+    }
+    .danger-btn {
+      &.btn:hover {
+        color: $error !important;
+      }
+    }
+  }
+}
