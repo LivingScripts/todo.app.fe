@@ -349,3 +349,8 @@ ul {
     flex-direction: column;
   }
 }
+
+.card-template {
+  background-color: $panel-bg-color;
+  border-radius: 8px;
+}
